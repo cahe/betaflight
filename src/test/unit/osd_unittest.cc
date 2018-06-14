@@ -68,6 +68,8 @@ extern "C" {
     int16_t GPS_directionToHome;
     int32_t GPS_coord[2];
     gpsSolutionData_t gpsSol;
+    float motor[8];
+    float motorOutputHigh = 2047;
 
     PG_REGISTER(batteryConfig_t, batteryConfig, PG_BATTERY_CONFIG, 0);
     PG_REGISTER(blackboxConfig_t, blackboxConfig, PG_BLACKBOX_CONFIG, 0);
@@ -1033,4 +1035,6 @@ extern "C" {
     }
 
     float pidItermAccelerator(void) { return 1.0; }
+    uint8_t getMotorCount(void){ return 4; }
+    bool areMotorsRunning(void){ return true; }
 }
