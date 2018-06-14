@@ -51,6 +51,7 @@ extern "C" {
     #include "sensors/battery.h"
 
     #include "rx/rx.h"
+	#include "flight/mixer.h"
 
     void osdRefresh(timeUs_t currentTimeUs);
     void osdFormatTime(char * buff, osd_timer_precision_e precision, timeUs_t time);
