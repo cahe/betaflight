@@ -602,15 +602,16 @@ static bool osdDrawSingleElement(uint8_t item)
 		
     case OSD_MOTOR_DIAG:
         if(areMotorsRunning()) {
-            float normalizedOutput = motorOutputHigh - motorOutputLow;
-            char motorN[getMotorCount()];
+            //float normalizedOutput = motorOutputHigh - motorOutputLow;
             int maxIdx = 0;
-            for(int i = 0; i < getMotorCount(); i++) {
+            int i = 0;
+            for(; i < getMotorCount(); i++) {
                 if(motor[i] > motor[maxIdx]) {
                     maxIdx = i;
                 }
                 buff[i] =  0x88 - scaleRange((int)motor[i], (int)motorOutputLow, (int) motorOutputHigh, 0, 8);
             }
+            buff[i] = '\0';
         }
         break;
 
